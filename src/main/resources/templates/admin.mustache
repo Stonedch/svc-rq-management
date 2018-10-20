@@ -1,0 +1,46 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Getting Started: Serving Web Content</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="css.css">
+</head>
+<body>
+	<section id="admin" class="active">
+        <form action="/logout" method="post">
+            <input type="hidden" name="_csrf" value="{{_csrf.tokken}}"/>
+            <input type="submit" value="Sign Out"/>
+        </form>
+		<div class="client-status">
+			<h3>Таблица заказов</h3>
+			<table>
+				<tr>
+					<td>Заявка</td>
+					<td>Цена</td>
+					<td>Дата</td>
+					<td>Состояние</td>
+				</tr>
+				<tr class="table-line">
+					<td>Заявка1</td>
+					<td>100</td>
+					<td>дата1</td>
+					<td class="wait">ожидание</td>
+					<td><input class="check" type="checkbox"></td>
+				</tr>
+				<tr class="table-line">
+					<td>Заявка2</td>
+					<td>200</td>
+					<td>дата2</td>
+					<td class="wait">ожидание</td>
+					<td><input class="check" type="checkbox"></td>
+				</tr>
+			</table>
+			<button class="save-button">Обновить таблицу</button>
+		</div>
+		<div class="status-info">
+			<h3><span class="accept">Заявок принято</span> / <span class="wait">всего заявок</span></h3>
+			<h4> <span class="accept">0</span> / <span class="wait">0</span></h4>
+		</div>
+	</section>
+</body>
+</html>
