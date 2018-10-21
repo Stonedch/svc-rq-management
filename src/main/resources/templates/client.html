@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Client-Panel Page</title>
+</head>
+
+<body>
+    <section id="client" class="active">
+
+        <!--<form action="/logout" method="post">-->
+            <!--<input type="submit" value="Sign Out"/>-->
+            <!--<input type="hidden" name="_csrf" value="{{_csrf.token}}"/>-->
+        <!--</form>-->
+
+        <form class="form" action="#" method="post" th:action="@{/client}" th:object="${request}">
+            <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
+            <p class="form-inputs">
+                <span>Заявка:</span>
+                <input type="text" th:field="*{requestTxt}" />
+            </p>
+            <p class="form-inputs">
+                <span>Цена</span>
+                <input type="text" th:field="*{bid}" />
+            </p>
+            <!--<p class="form-inputs">-->
+                <!--<span>Дата</span>-->
+                <!--<input type="text" th:field="*{dueDate}" />-->
+            <!--</p>-->
+            <p><input type="submit" value="Submit" /></p>
+        </form>
+
+        <div class="client-status">
+            <h3>Таблица заказов</h3>
+            <table>
+                <tr th:each="req : ${requests}">
+                    <td th:text="${req.id}"></td>
+                    <td th:text="${req.requestTxt}"></td>
+                    <td th:text="${req.bid}"></td>
+                    <td th:text="${req.dueDate}"></td>
+                </tr>
+            </table>
+        </div>
+
+    </section>
+</body>
+
+</html>
