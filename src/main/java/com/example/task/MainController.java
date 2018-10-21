@@ -25,15 +25,4 @@ public class MainController {
     public String login(Map<String, Object> model) {
           return "admin";
     }
-
-    /*@PostMapping("/index")
-    public String isUserExist(@RequestParam("login") String login, @RequestParam("password") String password){
-        User user = userRepository.findByLoginAndPassword(login, password);
-        if (user != null && user.getIsAdmin()){
-            return "admin";
-        } else {
-            return "client";
-        }
-    }*/
-
 }
