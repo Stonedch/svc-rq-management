@@ -1,9 +1,6 @@
 package com.example.task.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
@@ -13,12 +10,12 @@ public class Request {
     private Long id;
     private String requestTxt;
     private Double bid;
-    private Date dueDate;
+    private String dueDate;
 
     public Request(){
     }
 
-    public Request(String requestTxt, Double bid, Date dueDate) {
+    public Request(String requestTxt, Double bid, String dueDate) {
         this.requestTxt = requestTxt;
         this.bid = bid;
         this.dueDate = dueDate;
@@ -48,11 +45,11 @@ public class Request {
         this.bid = bid;
     }
 
-    public Date getDueDate() {
+    public String getDueDate() {
         return dueDate;
     }
 
-    public void setDueDate(Date dueDate) {
+    public void setDueDate(String dueDate) {
         this.dueDate = dueDate;
     }
 }
