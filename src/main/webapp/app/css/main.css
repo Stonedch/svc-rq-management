@@ -1,0 +1,37 @@
+@import url("https://fonts.googleapis.com/css?family=Lato");
+.container {
+  margin: 0 auto;
+  padding: 0;
+  max-width: 900px; }
+
+.header {
+  height: 200px;
+  background: url(../images/0-header-background.jpg);
+  background-position: bottom center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative; }
+  .header::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #424242;
+    opacity: .75;
+    content: ""; }
+  .header .header__title {
+    text-decoration: none;
+    margin: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: #9E9E9E;
+    font-family: "Lato", sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 3em;
+    transition: .8s; }
+    .header .header__title:hover {
+      color: #fafafa; }
