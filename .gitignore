@@ -1,6 +1,9 @@
-node_modules/
-package-lock.json
-
-.idea/
+src/main/webapp/node/
+src/main/webapp/node_modules/
+src/main/webapp/package-lock.json
 
 target/
+src/main/resources/templates/
+src/main/resources/static/
+
+.idea/
