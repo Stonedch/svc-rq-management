@@ -15,20 +15,15 @@ public class ClientController {
     @Autowired
     private RequestRepository requestRepository;
 
-//    @GetMapping("/client")
-//    public String getClient(Model model) {
-//        model.addAttribute("request", new Request());
-//        model.addAttribute("requests" , requestRepository.findAll());
-//        System.out.println("TEST");
-//
-//
-//        return "client";
-//    }
+    @GetMapping("/client")
+    public String getClient(Model model) {
+        model.addAttribute("requests" , requestRepository.findAll());
+        return "client";
+    }
 
     @PostMapping("/client")
-    public String submit(@ModelAttribute Request request, Model model) {
-        model.addAttribute("requests", requestRepository.findAll());
+    public void submit(@ModelAttribute Request request, Model model) {
         requestRepository.save(request);
-        return "client";
+        getClient(model);
     }
 }
