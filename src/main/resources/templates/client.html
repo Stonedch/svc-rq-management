@@ -9,24 +9,23 @@
 <body>
     <section id="client" class="active">
 
-        <!--<form action="/logout" method="post">-->
-            <!--<input type="submit" value="Sign Out"/>-->
-            <!--<input type="hidden" name="_csrf" value="{{_csrf.token}}"/>-->
-        <!--</form>-->
-
         <form class="form" action="#" method="post" th:action="@{/client}" th:object="${request}">
             <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
             <p class="form-inputs">
                 <span>Заявка:</span>
-                <input type="text" th:field="*{requestTxt}" />
+                <input type="text" th:field="*{title}" required autocomplete="off" />
             </p>
             <p class="form-inputs">
                 <span>Цена</span>
-                <input type="text" th:field="*{bid}" />
+                <input type="text" th:field="*{price}" required autocomplete="off" />
             </p>
             <p class="form-inputs">
                 <span>Дата</span>
-                <input type="date" th:field="*{dueDate}" />
+                <input type="date" th:field="*{deadline}" required autocomplete="off" />
+            </p>
+            <p class="form-inputs">
+                <span>Сообщение:</span>
+                <input type="text" th:field="*{content}" autocomplete="off" />
             </p>
             <p><input type="submit" value="Submit" /></p>
         </form>
@@ -35,10 +34,10 @@
             <h3>Таблица заказов</h3>
             <table>
                 <tr th:each="req : ${requests}">
-                    <td th:text="${req.id}"></td>
-                    <td th:text="${req.requestTxt}"></td>
-                    <td th:text="${req.bid}"></td>
-                    <td th:text="${req.dueDate}"></td>
+                    <td th:text="${req.title}"></td>
+                    <td th:text="${req.content}"></td>
+                    <td th:text="${req.price}"></td>
+                    <td th:text="${req.deadline}"></td>
                 </tr>
             </table>
         </div>
