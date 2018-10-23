@@ -1,6 +1,6 @@
-src/main/webapp/node/
-src/main/webapp/node_modules/
-src/main/webapp/package-lock.json
+node/
+node_modules/
+package-lock.json
 
 target/
 src/main/resources/templates/
