@@ -19,6 +19,7 @@ gulp.task("generate-styles", function() {
     return gulp.src(webapp + "sass/**/*.sass")
                .pipe(sass().on("error", sass.logError))
                .pipe(gulp.dest(resources + "static/css/"))
+               .pipe(gulp.dest(webapp + "css/"))
 });
 
 gulp.task("generate-images", function() {
