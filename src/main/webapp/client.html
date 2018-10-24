@@ -14,35 +14,12 @@
 <body>
 
     <div class="container">
-
         <header class="header">
             <a href="/client" class="header__title">Client Panel.</a>
         </header>
 
-        <section id="client" class="active">
-
-            <form class="form" action="#" method="post" th:action="@{/client}" th:object="${request}">
-                <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
-                <p class="form-inputs">
-                    <span>Заявка:</span>
-                    <input type="text" th:field="*{title}" required autocomplete="off" />
-                </p>
-                <p class="form-inputs">
-                    <span>Цена</span>
-                    <input type="text" th:field="*{price}" required autocomplete="off" />
-                </p>
-                <p class="form-inputs">
-                    <span>Дата</span>
-                    <input type="date" th:field="*{deadline}" required autocomplete="off" />
-                </p>
-                <p class="form-inputs">
-                    <span>Сообщение:</span>
-                    <input type="text" th:field="*{content}" autocomplete="off" />
-                </p>
-                <p><input type="submit" value="Submit" /></p>
-            </form>
-
-            <div class="client-status">
+        <main class="main">
+            <section class="client-status">
                 <h3>Таблица заказов</h3>
                 <table>
                     <tr th:each="req : ${requests}">
@@ -52,10 +29,21 @@
                         <td th:text="${req.deadline}"></td>
                     </tr>
                 </table>
-            </div>
+            </section>
 
-        </section>
-
+            <section class="form-section">
+                <h2 class="form-section__title">Quick Request</h2>
+                <p class="form-section__par">Send us a message and get an answer within one hour!</p>
+                <form class="form-section__form" action="#" method="post" th:action="@{/client}" th:object="${request}">
+                    <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
+                    <input class="form-section__form-field" placeholder="Request title" type="text" th:field="*{title}" required autocomplete="off" />
+                    <input class="form-section__form-field" placeholder="Your price" type="text" th:field="*{price}" required autocomplete="off" />
+                    <input class="form-section__form-field" placeholder="Deadline" type="date" th:field="*{deadline}" required autocomplete="off" />
+                    <textarea class="form-section__form-field form-section__form-field_textarea" placeholder="Your request message" th:field="*{content}" tabindex="5" required></textarea>
+                    <button class="form-section__form-submit" type="submit">Submit</button>
+                </form>
+            </section>
+        </main>
     </div>
 
 </body>
