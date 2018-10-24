@@ -24,7 +24,6 @@
 
                 <div class="request-list">
                     <div class="request-list__request" th:each="req : ${requests}">
-                        <span class="request-list__id" th:text="${req.id}">162008b0-daae-4dfe-9ce9-7eebd94d094b</span>
                         <span class="request-list__title" th:text="${req.title}">Title</span>
                         <span class="request-list__content" th:text="${req.content}">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
                         <span class="request-list__price" th:text="${req.price}">99.99</span>
