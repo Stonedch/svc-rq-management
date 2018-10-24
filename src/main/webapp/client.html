@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="initial-scale=1,minimum-scale=1,maximum-scale=1,width=device-width">
+
+    <title>Client-Panel / RPS</title>
+
+     <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <header class="header">
+            <a href="/client" class="header__title">Client Panel.</a>
+        </header>
+
+        <main class="main">
+            <section class="content">
+                <h2 class="content__title">Request list</h2>
+
+                <div class="request-list">
+                    <div class="request-list__request" th:each="req : ${requests}">
+                        <span class="request-list__title" th:text="${req.title}">Title</span>
+                        (<span class="request-list__price" th:text="${req.price}">99.99</span>) - 
+                        <span class="request-list__deadline" th:text="${req.deadline}">12/12/2018</span>
+                        <br />
+                        <span class="request-list__content" th:text="${req.content}">Lorem Ipsum</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="form-section">
+                <h2 class="form-section__title">Quick Request</h2>
+                <p class="form-section__par">Send us a message and get an answer within one hour!</p>
+                <form class="form-section__form" action="#" method="post" th:action="@{/client}" th:object="${request}">
+                    <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
+                    <input class="form-section__form-field" placeholder="Request title" type="text" th:field="*{title}" required autocomplete="off" />
+                    <input class="form-section__form-field" placeholder="Your price" type="text" th:field="*{price}" required autocomplete="off" />
+                    <input class="form-section__form-field" placeholder="Deadline" type="date" th:field="*{deadline}" required autocomplete="off" />
+                    <textarea class="form-section__form-field form-section__form-field_textarea" placeholder="Your request message" th:field="*{content}" tabindex="5" required></textarea>
+                    <button class="form-section__form-submit" type="submit">Submit</button>
+                </form>
+            </section>
+        </main>
+    </div>
+
+</body>
+
+</html>

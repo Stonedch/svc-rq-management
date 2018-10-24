@@ -1,24 +1,26 @@
 package com.example.task.domain;
 
 import javax.persistence.*;
-import java.util.Date;
 
 @Entity
 public class Request {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Long id;
-    private String requestTxt;
-    private Double bid;
-    private String dueDate;
+
+    private String title;
+    private String content;
+    private double price;
+    private String deadline;
 
     public Request(){
     }
 
-    public Request(String requestTxt, Double bid, String dueDate) {
-        this.requestTxt = requestTxt;
-        this.bid = bid;
-        this.dueDate = dueDate;
+    public Request(String title, String content, double price, String deadline) {
+        this.title = title;
+        this.content = content;
+        this.price = price;
+        this.deadline = deadline;
     }
 
     public Long getId() {
@@ -29,27 +31,36 @@ public class Request {
         this.id = id;
     }
 
-    public String getRequestTxt() {
-        return requestTxt;
+    public String getTitle() {
+        return title;
     }
 
-    public void setRequestTxt(String requestTxt) {
-        this.requestTxt = requestTxt;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public Double getBid() {
-        return bid;
+    public String getContent() {
+        return content;
     }
 
-    public void setBid(Double bid) {
-        this.bid = bid;
+    public void setContent(String content) {
+        this.content = content;
     }
 
-    public String getDueDate() {
-        return dueDate;
+    public double getPrice() {
+        return price;
     }
 
-    public void setDueDate(String dueDate) {
-        this.dueDate = dueDate;
+    public void setPrice(double price) {
+        this.price = price;
     }
+
+    public String getDeadline() {
+        return deadline;
+    }
+
+    public void setDeadline(String deadline) {
+        this.deadline = deadline;
+    }
+
 }
