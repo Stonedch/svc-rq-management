@@ -105,12 +105,26 @@ body
     color: #333
 
     .request-list__request
+        display: grid
+        grid-template-columns: 1fr auto auto
+        grid-template-rows: auto 1fr auto
+        grid-gap: 1em
         margin-bottom: 10px
         padding: 15px
         width: 450px
         border-left: 3px solid #212121
+        background-color: #e0e0e0
+
+    .request-list__request_accept
+        background-color: #c8e6c9 !important
+
+    .request-list__request_decline
+        background-color: #f8bbd0 !important
 
     .request-list__id
+        text-align: end
+        grid-column: 3
+        grid-row: 1
         color: #999
         font-size: 1.5em
         text-width: bold
@@ -118,5 +132,27 @@ body
             content: "#"
 
     .request-list__title
+        grid-column: 1
+        grid-row: 1
         font-size: 1.5em
         text-width: bold
+        &::before
+            content: "\""
+        &::after
+            content: "\""
+
+    .request-list__content
+        grid-column: 1 / -1
+        grid-row: 2
+
+    .request-list__price
+        text-align: end
+        grid-column: 2
+        grid-row: 3
+        &::after
+            content: "$"
+
+    .request-list__deadline
+        text-align: end
+        grid-column: 3
+        grid-row: 3
