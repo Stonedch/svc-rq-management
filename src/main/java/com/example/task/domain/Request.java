@@ -1,12 +1,13 @@
 package com.example.task.domain;
 
 import javax.persistence.*;
+import java.util.UUID;
 
 @Entity
 public class Request {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-    private Long id;
+    private UUID id;
 
     private String title;
     private String content;
@@ -23,11 +24,11 @@ public class Request {
         this.deadline = deadline;
     }
 
-    public Long getId() {
+    public UUID getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 

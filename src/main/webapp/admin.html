@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="initial-scale=1,minimum-scale=1,maximum-scale=1,width=device-width">
+
+    <title>Admin-Panel / Proc-Rec</title>
+
+     <link rel="icon" type="image/png" href="images/favicon.png">
+     <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <header class="header header_admin">
+            <a href="/admin" class="header__title">Admin Panel.</a>
+        </header>
+
+        <main class="main">
+            <section class="content">
+                <h2 class="content__title">Request list</h2>
+
+                <div class="request-list">
+                    <div class="request-list__request" th:each="req : ${requests}">
+                        <span class="request-list__id" th:text="${req.id}">123e4567-e89b-12d3-a456-556642440000</span>
+                        <span class="request-list__title" th:text="${req.title}">Lorem Ipsum</span>
+                        <span class="request-list__content" th:text="${req.content}">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
+                        <span class="request-list__price" th:text="${req.price}">99.99</span>
+                        <span class="request-list__deadline" th:text="${req.deadline}">12/12/2018</span>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+</body>
+
+</html>
