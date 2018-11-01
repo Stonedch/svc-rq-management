@@ -7,7 +7,7 @@ import java.util.UUID;
 public class Request {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-    private UUID id;
+    private long id;
 
     private String title;
     private String content;
@@ -24,11 +24,11 @@ public class Request {
         this.deadline = deadline;
     }
 
-    public UUID getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(long id) {
         this.id = id;
     }
 
