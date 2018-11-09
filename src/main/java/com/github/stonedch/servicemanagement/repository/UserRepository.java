@@ -1,7 +1,7 @@
-package com.example.task.repository;
+package com.github.stonedch.servicemanagement.repository;
 
+import com.github.stonedch.servicemanagement.domain.User;
 import org.springframework.data.repository.CrudRepository;
-import com.example.task.domain.User;
 
 public interface UserRepository extends CrudRepository<User, Long>{
 

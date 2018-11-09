@@ -1,7 +1,7 @@
-package com.example.task.controller;
+package com.github.stonedch.servicemanagement.controller;
 
-import com.example.task.domain.Request;
-import com.example.task.repository.RequestRepository;
+import com.github.stonedch.servicemanagement.domain.Request;
+import com.github.stonedch.servicemanagement.repository.RequestRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,7 +9,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 public class ClientController {

@@ -1,4 +1,4 @@
-package com.example.task.domain;
+package com.github.stonedch.servicemanagement.domain;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;

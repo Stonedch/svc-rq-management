@@ -1,6 +1,6 @@
-package com.example.task.repository;
+package com.github.stonedch.servicemanagement.repository;
 
-import com.example.task.domain.Request;
+import com.github.stonedch.servicemanagement.domain.Request;
 
 import org.springframework.data.repository.CrudRepository;
 

@@ -1,4 +1,4 @@
-package com.example.task.domain;
+package com.github.stonedch.servicemanagement.domain;
 
 import javax.persistence.*;
 import java.util.UUID;
