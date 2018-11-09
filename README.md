@@ -1,12 +1,20 @@
-# Proc-Req
-Simple web application for processing requests.
+# Service Request Management
+A simple Java web application for managing user requests.
 
-## Getting Started
-
-To run the application for the test.
+## Install
 
 ```console
-foo@bar: proc-req $ npm install
-foo@bar: proc-req $ gulp
-foo@bar: proc-req $ mvn clean install spring-boot:run
+foo@bar: svc-rq-management $ npm install
+foo@bar: svc-rq-management $ gulp
+foo@bar: svc-rq-management $ mvn clean install
 ```
+## Run
+
+```console
+foo@bar: svc-rq-management $ mvn spring-boot:run
+```
+
+## Authors
+
+* **Max Mukhin** - [Stonedch](https://github.com/Stonedch)
+* **Artem Karenskiy** - [KarenskiyArtem](https://github.com/KarenskiyArtem)
