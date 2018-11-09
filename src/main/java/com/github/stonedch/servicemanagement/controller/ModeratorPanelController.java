@@ -10,8 +10,8 @@ import com.github.stonedch.servicemanagement.domain.Request;
 import com.github.stonedch.servicemanagement.repository.RequestRepository;
 
 @Controller
-@RequestMapping("/admin")
-public class AdminController {
+@RequestMapping("/moderator-panel")
+public class ModeratorPanelController {
     @Autowired
     private RequestRepository requestRepository;
 
@@ -22,7 +22,7 @@ public class AdminController {
         return "admin";
     }
 
-    @PostMapping("/request")
+    @PostMapping
     public String createRequest(@ModelAttribute Request request,
                                 BindingResult bindingResult) {
         if (!bindingResult.hasErrors()) requestRepository.save(request);
