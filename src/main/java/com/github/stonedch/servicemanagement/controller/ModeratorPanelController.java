@@ -17,15 +17,15 @@ public class ModeratorPanelController {
 
     @GetMapping
     public String getAdmin(Model model) {
-        model.addAttribute(new Request());
-        model.addAttribute("requests", requestRepository.findAll());
-        return "admin";
+        model.addAttribute("newRequest", new Request());
+        model.addAttribute("requestList", requestRepository.findAll());
+        return "moderator-panel";
     }
 
     @PostMapping
-    public String createRequest(@ModelAttribute Request request,
-                                BindingResult bindingResult) {
+    public String addRequest(@ModelAttribute Request request,
+                             BindingResult bindingResult) {
         if (!bindingResult.hasErrors()) requestRepository.save(request);
-        return "redirect:/admin";
+        return "redirect:/moderator-panel";
     }
 }

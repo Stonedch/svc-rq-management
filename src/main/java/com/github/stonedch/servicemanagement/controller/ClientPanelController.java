@@ -26,8 +26,8 @@ public class ClientPanelController {
     }
 
     @PostMapping
-    public String submit(@ModelAttribute Request request,
-                         BindingResult bindingResult) {
+    public String addRequest(@ModelAttribute Request request,
+                             BindingResult bindingResult) {
         if (!bindingResult.hasErrors()) requestRepository.save(request);
         return "redirect:/client-panel";
     }
