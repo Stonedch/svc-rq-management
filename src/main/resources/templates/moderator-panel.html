@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="initial-scale=1,minimum-scale=1,maximum-scale=1,width=device-width">
+
+    <title>Moderator-Panel</title>
+</head>
+
+<body>
+
+    <div th:each="request : ${requestList}">
+        <span th:text="${request.id}">123e4567-e89b-12d3-a456-556642440000</span>
+        <span th:text="${request.title}">Lorem Ipsum</span>
+        <span th:text="${request.content}">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
+        <span th:text="${request.price}">99.99</span>
+        <span th:text="${request.deadline}">12/12/2018</span>
+    </div>
+
+    <form action="#" method="post" th:action="@{/moderator-panel}" th:object="${newRequest}">
+        <input placeholder="Request title" type="text" th:field="*{title}" required autocomplete="off" />
+        <input placeholder="Your price" type="text" th:field="*{price}" required autocomplete="off" />
+        <input placeholder="Deadline" type="date" th:field="*{deadline}" required autocomplete="off" />
+        <textarea placeholder="Your request message" th:field="*{content}" tabindex="5" required></textarea>
+        <button type="submit">Submit</button>
+    </form>
+
+</body>
+
+</html>
