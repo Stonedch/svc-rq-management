@@ -1,11 +1,2 @@
-node/
-node_modules/
-package-lock.json
-yarn.lock
-
 target/
-src/main/resources/templates/
-src/main/resources/static/
-src/main/webapp/css
-
 .idea/
