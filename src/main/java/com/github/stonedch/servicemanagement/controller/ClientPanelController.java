@@ -19,16 +19,9 @@ public class ClientPanelController {
     private RequestRepository requestRepository;
 
     @GetMapping
-    public String client(Model model) {
+    public String getClientPanel(Model model) {
         model.addAttribute("newRequest", new Request());
         model.addAttribute("requestList" , requestRepository.findAll());
         return "client-panel";
-    }
-
-    @PostMapping
-    public String addRequest(@ModelAttribute Request request,
-                             BindingResult bindingResult) {
-        if (!bindingResult.hasErrors()) requestRepository.save(request);
-        return "redirect:/client-panel";
     }
 }

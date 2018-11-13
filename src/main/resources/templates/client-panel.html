@@ -18,7 +18,7 @@
         <span th:text="${request.deadline}">12/12/2018</span>
     </div>
 
-    <form action="#" method="post" th:action="@{/client-panel}" th:object="${newRequest}">
+    <form action="#" method="post" th:action="@{/requests/add}" th:object="${newRequest}">
         <input placeholder="Request title" type="text" th:field="*{title}" required autocomplete="off" />
         <input placeholder="Your price" type="text" th:field="*{price}" required autocomplete="off" />
         <input placeholder="Deadline" type="date" th:field="*{deadline}" required autocomplete="off" />

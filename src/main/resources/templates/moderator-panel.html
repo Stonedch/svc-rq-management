@@ -12,7 +12,7 @@
 <body>
 
     <h2>Request Form</h2>
-    <form action="#" method="post" th:action="@{/moderator-panel}" th:object="${newRequest}">
+    <form action="#" method="post" th:action="@{/requests/add}" th:object="${newRequest}">
         <input placeholder="Request title" type="text" th:field="*{title}" required autocomplete="off" />
         <input placeholder="Your price" type="text" th:field="*{price}" required autocomplete="off" />
         <input placeholder="Deadline" type="date" th:field="*{deadline}" required autocomplete="off" />
@@ -21,16 +21,40 @@
     </form>
 
     <h2>Request List</h2>
-    <div th:each="request : ${requestList}" th:if="!${request.deletedStatus}">
+    <div th:each="request : ${requestList}" th:if="!${request.deletedStatus} and !${request.acceptedStatus}">
         <span th:text="${request.id}">123e4567-e89b-12d3-a456-556642440000</span>
         <span th:text="${request.title}">Lorem Ipsum</span>
         <span th:text="${request.content}">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
         <span th:text="${request.price}">99.99</span>
         <span th:text="${request.deadline}">12/12/2018</span>
-        <form method="post" th:action="@{/moderator-panel/delete}">
+        <form method="post" th:action="@{/requests/delete}">
             <input type="hidden" name="id" th:value="${request.id}" />
             <input type="hidden" name="status" th:value="${true}" />
             <button type="submit">Delete</button>
+        </form>
+        <form method="post" th:action="@{/requests/accept}">
+            <input type="hidden" name="id" th:value="${request.id}" />
+            <input type="hidden" name="status" th:value="${true}" />
+            <button type="submit">Accept</button>
+        </form>
+    </div>
+
+    <h2>Accepted Request List</h2>
+    <div th:each="request : ${requestList}" th:if="!${request.deletedStatus} and ${request.acceptedStatus}">
+        <span th:text="${request.id}">123e4567-e89b-12d3-a456-556642440000</span>
+        <span th:text="${request.title}">Lorem Ipsum</span>
+        <span th:text="${request.content}">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
+        <span th:text="${request.price}">99.99</span>
+        <span th:text="${request.deadline}">12/12/2018</span>
+        <form method="post" th:action="@{/requests/delete}">
+            <input type="hidden" name="id" th:value="${request.id}" />
+            <input type="hidden" name="status" th:value="${true}" />
+            <button type="submit">Delete</button>
+        </form>
+        <form method="post" th:action="@{/requests/accept}">
+            <input type="hidden" name="id" th:value="${request.id}" />
+            <input type="hidden" name="status" th:value="${false}" />
+            <button type="submit">Decline</button>
         </form>
     </div>
 
@@ -41,7 +65,7 @@
         <span th:text="${request.content}">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
         <span th:text="${request.price}">99.99</span>
         <span th:text="${request.deadline}">12/12/2018</span>
-        <form method="post" th:action="@{/moderator-panel/delete}">
+        <form method="post" th:action="@{/requests/delete}">
             <input type="hidden" name="id" th:value="${request.id}" />
             <input type="hidden" name="status" th:value="${false}" />
             <button type="submit">Restore</button>

@@ -12,16 +12,19 @@ public class Request {
     private double price;
     private String deadline;
     private boolean deletedStatus;
+    private boolean acceptedStatus;
 
     public Request(){
     }
 
-    public Request(String title, String content, double price, String deadline, boolean deletedStatus) {
+    public Request(String title, String content, double price, String deadline,
+                   boolean deletedStatus, boolean acceptedStatus) {
         this.title = title;
         this.content = content;
         this.price = price;
         this.deadline = deadline;
         this.deletedStatus = deletedStatus;
+        this.acceptedStatus = acceptedStatus;
     }
 
     public Long getId() {
@@ -70,5 +73,13 @@ public class Request {
 
     public void setDeletedStatus(boolean deletedStatus) {
         this.deletedStatus = deletedStatus;
+    }
+
+    public boolean getAcceptedStatus() {
+        return acceptedStatus;
+    }
+
+    public void setAcceptedStatus(boolean acceptedStatus) {
+        this.acceptedStatus = acceptedStatus;
     }
 }
