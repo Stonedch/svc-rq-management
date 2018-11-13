@@ -1,34 +1,34 @@
 package com.github.stonedch.servicemanagement.domain;
 
 import javax.persistence.*;
-import java.util.UUID;
 
 @Entity
 public class Request {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-    private long id;
-
+    private Long id;
     private String title;
     private String content;
     private double price;
     private String deadline;
+    private boolean deletedStatus;
 
     public Request(){
     }
 
-    public Request(String title, String content, double price, String deadline) {
+    public Request(String title, String content, double price, String deadline, boolean deletedStatus) {
         this.title = title;
         this.content = content;
         this.price = price;
         this.deadline = deadline;
+        this.deletedStatus = deletedStatus;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -64,4 +64,11 @@ public class Request {
         this.deadline = deadline;
     }
 
+    public boolean getDeletedStatus() {
+        return deletedStatus;
+    }
+
+    public void setDeletedStatus(boolean deletedStatus) {
+        this.deletedStatus = deletedStatus;
+    }
 }
