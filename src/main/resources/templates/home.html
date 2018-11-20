@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="initial-scale=1,minimum-scale=1,maximum-scale=1,width=device-width">
+
+    <title>Home</title>
+</head>
+
+<body>
+    <h1>Home Page</h1>
+    <h2 th:text="'Hello, ' + ${#httpServletRequest.remoteUser} + '!'"></h2>
+    <form th:action="@{/logout}" method="post">
+        <button type="submit">Sign Out</button>
+    </form>
+    <a href="/client-panel">Client Panel</a>
+    <a href="/moderator-panel">Moderator Panel</a>
+</body>
+
+</html>

@@ -17,6 +17,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     public void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
+                .antMatchers("/requests/**", "/user-panel/**").hasRole("USER")
+                .antMatchers("/requests/**", "/user-panel/**", "/moderator-panel/**").hasRole("MODERATOR")
                 .anyRequest().authenticated()
                 .and()
             .formLogin()
@@ -37,6 +39,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                     .roles("USER")
                     .build();
 
-        return new InMemoryUserDetailsManager(user);
+        UserDetails moderator =
+                User.withDefaultPasswordEncoder()
+                        .username("moderator")
+                        .password("password")
+                        .roles("MODERATOR")
+                        .build();
+
+        return new InMemoryUserDetailsManager(user, moderator);
     }
 }
